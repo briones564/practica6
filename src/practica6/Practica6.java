@@ -34,16 +34,69 @@ public class Practica6 {
         switch (opcion){
         
             case 1:
-                crearCliente();
+                
+                System.out.print("---> Introduce el nombre del cliente:_ ");
+                String nombreCliente = scan.nextLine();
+                System.out.print("---> Introduce los apellidos del cliente:_ ");
+                String apellidosCliente = scan.nextLine();
+                System.out.print("---> Introduce la edad del cliente:_ ");
+                int edadCliente = scan.nextInt();
+                System.out.print("---> Introduce la dirección del cliente:_ ");
+                String direccionCliente = scan.nextLine();
+                System.out.print("---> Introduce el teléfono del cliente:_ ");
+                String telefonoCliente = scan.nextLine();
+                System.out.print("---> Introduce el código del cliente:_ ");
+                int codigoCliente = scan.nextInt();
+                
+                cliente.crearCliente(nombreCliente, apellidosCliente, edadCliente, direccionCliente, telefonoCliente, codigoCliente);
                 break;
+                
             case 2:
-                crearCuenta();
+                
+                System.out.print("---> Introduce el nombre de la cuenta:_ ");
+                String nombreCuenta = scan.nextLine();
+                System.out.print("---> Introduce el saldo de la cuenta:_ ");
+                int saldoCuenta = scan.nextInt();
+                System.out.print("---> Introduce el código de la cuenta:_ ");
+                String codigoCuenta = scan.nextLine();
+                System.out.print("---> Introduce el cliente propietario:_ ");
+                String clienteCuenta = scan.nextLine();
+                
+                cuentaBancaria.crearCuenta(nombreCuenta, saldoCuenta, codigoCuenta, clienteCuenta);
                 break;
+                
             case 3:
-                ingresarDinero();
+                
+                int cantidadIngreso = 0;
+                
+                do {
+                    
+                    System.out.print("---> Introduce el nombre de la cuenta:_ ");
+                    nombreCuenta = scan.nextLine();
+                    System.out.print("---> Introduce la cantidad a ingresar:_ ");
+                    cantidadIngreso = scan.nextInt();
+
+                    cuentaBancaria.ingresarDinero(nombreCuenta, cantidadIngreso);
+
+                } while (cuentaBancaria.ingresarDinero(nombreCuenta, cantidadIngreso) == false);
+                
                 break;
+                
             case 4:
-                retirarDinero();
+                
+                int cantidadRetirada = 0;
+                
+                do {
+                  
+                    System.out.print("---> Introduce el nombre de la cuenta:_ ");
+                    nombreCuenta = scan.nextLine();
+                    System.out.print("---> Introduce la cantidad a retirar:_ ");
+                    cantidadRetirada = scan.nextInt();
+
+                    cuentaBancaria.retirarDinero(nombreCuenta, cantidadRetirada); 
+                
+                } while (cuentaBancaria.retirarDinero(nombreCuenta, cantidadRetirada) == false);
+                
                 break;
         }
     }
